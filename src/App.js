@@ -1,8 +1,12 @@
 import React from 'react';
+import Routes from "./routes"
+import {BrowserRouter} from "react-router-dom"
 
 function App() {
   return (
-    <h1>Ola App</h1>
+    <BrowserRouter>
+      <Routes />
+    </BrowserRouter>
   );
 }
 

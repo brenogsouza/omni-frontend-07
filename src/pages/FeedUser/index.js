@@ -9,10 +9,15 @@ export default class FeedUser extends Component {
   state = {
     feed: []
   };
+  
   async componentDidMount() {
     const response = await api.get("posts");
 
     this.setState({ feed: response.data });
+  }
+
+  handleLike = id => {
+    api.post(`/posts/${id}/likes`)
   }
 
   render() {
@@ -30,7 +35,9 @@ export default class FeedUser extends Component {
             <img src={`http://localhost:3333/files/${post.image}`} alt="" />
             <footer>
               <div className="actions">
-                <img src={like} alt="curtir" />
+                <button type="button" onClick={() => this.handleLike(post._id)}>
+                  <img src={like} alt="curtir" />
+                </button>
                 <img src={comment} alt="comentarios" />
                 <img src={send} alt="envios" />
               </div>

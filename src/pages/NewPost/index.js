@@ -36,6 +36,8 @@ export default class NewPost extends Component {
     data.append('hashtags', this.state.hashtags);
 
     await api.post('posts', data)
+
+    this.props.history.push('/')
   }
 
   render() {

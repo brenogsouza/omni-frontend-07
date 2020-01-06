@@ -1,5 +1,7 @@
 import React, { Component } from 'react'
 
+import api from "../../services/api"
+
 import "./NewPost.css"
 
 export default class NewPost extends Component {
@@ -23,9 +25,17 @@ export default class NewPost extends Component {
     })
   }
 
-  handleSubmit = e => {
+  handleSubmit = async e => {
     e.preventDefault()
-    console.log(this.state)
+
+    const data = new FormData()
+    data.append('image', this.state.image);
+    data.append('author', this.state.author);
+    data.append('place', this.state.place);
+    data.append('description', this.state.description);
+    data.append('hashtags', this.state.hashtags);
+
+    await api.post('posts', data)
   }
 
   render() {

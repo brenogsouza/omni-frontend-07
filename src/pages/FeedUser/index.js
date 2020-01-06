@@ -19,11 +19,11 @@ export default class FeedUser extends Component {
     return (
       <section id="post__list">
         {this.state.feed.map(post => (
-          <article>
+          <article key={post._id}>
             <header>
               <div className="user__info">
                 <span>{post.author}</span>
-        <span className="place">{post.place}</span>
+                <span className="place">{post.place}</span>
               </div>
               <img src={more} alt="mais" />
             </header>
@@ -34,10 +34,10 @@ export default class FeedUser extends Component {
                 <img src={comment} alt="comentarios" />
                 <img src={send} alt="envios" />
               </div>
-        <strong>{post.likes}</strong>
+              <strong>{post.likes}</strong>
               <p>
                 {post.description}
-        <span>{post.hashtags}</span>
+                <span>{post.hashtags}</span>
               </p>
             </footer>
           </article>

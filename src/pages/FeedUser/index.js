@@ -34,7 +34,7 @@ export default class FeedUser extends Component {
                 <img src={comment} alt="comentarios" />
                 <img src={send} alt="envios" />
               </div>
-              <strong>{post.likes}</strong>
+              <strong>{post.likes} curtidas</strong>
               <p>
                 {post.description}
                 <span>{post.hashtags}</span>
